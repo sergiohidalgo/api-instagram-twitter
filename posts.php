@@ -10,21 +10,27 @@ $settings = array(
 );
 
 $url = 'https://api.twitter.com/1.1/search/tweets.json';
-$getfield = '?q=%23meet';
+$getfield = '?q=%23meat&count=25';
 $requestMethod = 'GET';
 
 $twitter = new TwitterAPIExchange($settings);
 
-echo $twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest();
+//echo $twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest();
 $data_twitter = json_decode($twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest(), true);
 
 
     
 foreach ($data_twitter['statuses'] as $statuse) {
+
+    //Formato a fecha
+    $date = new DateTime($statuse['created_at']);
+    $date_format = $date->format('d/m/Y H:i:s');
+
+    //Construcción de array para json
     $data_post[] = array(
         'type' => 'twitter',
         'content' => $statuse['text'],
-        'date' => $statuse['created_at'], //"DD/MM/YYYY h:m:s"
+        'date' => $date_format,
         'likes' =>  $statuse['favorite_count']
     );
 }
