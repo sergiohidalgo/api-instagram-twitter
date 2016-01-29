@@ -35,11 +35,10 @@ foreach ($data_twitter['statuses'] as $statuse) {
         'likes' => $statuse['favorite_count']
     );
 }
-
+//fin twitter
 
 
 //Instagram
-
 $http = new HttpConnection();
 $http->init();
 $data_instagram = json_decode($http->get("https://api.instagram.com/v1/tags/meat/media/recent?access_token=44110995.1677ed0.6d87a7ce19f544c99e2912686465de59&count=25"), true);
@@ -60,6 +59,7 @@ foreach ($data_instagram['data'] as $data) {
         'likes' => $data['likes']['count']
     );
 }
+//fin instagram
 
 //Router
 $router = new AltoRouter();
@@ -75,3 +75,4 @@ if($match) {
     header("HTTP/1.0 404 Not Found");
     require '404.php';
 }
+//fin router
