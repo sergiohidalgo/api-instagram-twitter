@@ -1,0 +1,15 @@
+{
+    "name": "sergiohidalgo/api-instagram-twitter",
+    "description": "Conexion API",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergio",
+            "email": "yo@sergiohidalgo.cl"
+        }
+    ],
+    "require": {
+        "j7mbo/twitter-api-php": "^1.0",
+        "altorouter/altorouter": "1.1.0"
+    }
+}
