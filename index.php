@@ -54,7 +54,7 @@ foreach ($data_instagram['data'] as $data) {
     //Construcción de array para json
     $data_post[] = array(
         'type' => 'instagram',
-        'content' => $data['caption']['text'],
+        'content' => $data['images']['standard_resolution']['url'] . ' ' . $data['caption']['text'],
         'date' => $date_format,
         'likes' => $data['likes']['count']
     );
