@@ -24,6 +24,7 @@ foreach ($data_twitter['statuses'] as $statuse) {
 
     //Formato a fecha
     $date = new DateTime($statuse['created_at']);
+    $date->modify('-3 hours');
     $date_format = $date->format('d/m/Y H:i:s');
 
     //Construcción de array para json
