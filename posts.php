@@ -29,11 +29,9 @@ foreach ($data_twitter['statuses'] as $statuse) {
         'type' => 'twitter',
         'content' => $statuse['text'],
         'date' => $date_format,
-        'likes' =>  $statuse['favorite_count']
+        'likes' => $statuse['favorite_count']
     );
 }
 
 //Debug
-echo '<pre>';
 print_r($data_post);
-echo '</pre>';
