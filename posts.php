@@ -1,7 +1,8 @@
 <?php
 
-//Acceso API Twitter:
+header('Content-Type: application/json');
 
+//Acceso API Twitter
 $settings = array(
     'oauth_access_token' => "68351031-wxTG76QDz24LELSRehZ8kFCuKEIp2BFAnHTrbdHdE",
     'oauth_access_token_secret' => "f108HeUMXFXeQh90H5NSqSDcMw8sYR6NJwIFzGa8MpRig",
@@ -12,14 +13,10 @@ $settings = array(
 $url = 'https://api.twitter.com/1.1/search/tweets.json';
 $getfield = '?q=%23meat&count=25';
 $requestMethod = 'GET';
-
 $twitter = new TwitterAPIExchange($settings);
 
-//echo $twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest();
 $data_twitter = json_decode($twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest(), true);
 
-
-    
 foreach ($data_twitter['statuses'] as $statuse) {
 
     //Formato a fecha
@@ -36,7 +33,7 @@ foreach ($data_twitter['statuses'] as $statuse) {
     );
 }
 
-
+//Debug
 echo '<pre>';
 print_r($data_post);
 echo '</pre>';
