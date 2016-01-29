@@ -1,7 +1,5 @@
 <?php
 
-header('Content-Type: application/json');
-
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/class/HttpConnection.class.php';
 
@@ -64,7 +62,7 @@ foreach ($data_instagram['data'] as $data) {
 //Router
 $router = new AltoRouter();
 $router->setBasePath('');
-$router->map('GET','/posts/', 'posts.php', 'posts');
+$router->map('GET','/posts', 'posts.php', 'posts');
 $router->map('GET','/posts/likes', 'likes.php', 'likes');
 
 $match = $router->match();
